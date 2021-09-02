@@ -1,4 +1,3 @@
-
 # Budget Tracker
 ## Table of Content
 
