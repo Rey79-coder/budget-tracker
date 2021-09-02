@@ -12,7 +12,6 @@ router.post("/api/transactions", ({body}, res) => {
 });
 
 
-
 router.get("/api/transactions", (req, res) => {
   Transaction.find({}).sort({date: -1})
     .then(dbTransaction => {
