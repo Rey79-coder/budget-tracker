@@ -1,10 +1,13 @@
-const APP_PREFIX = 'FoodEvent-';     
+const APP_PREFIX = 'BudgetTracker-';     
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
-  "./index.html",
-  "./events.html",
-  "./dist/schedule.bundle.js"
+  "/models/transaction.js",
+  "/css/styles.css",
+  "/js/idb.js",
+  "public/js/index.js",
+  "public/index.html",
+  "routes/api.js"
 ];
 
 // Respond with cached resources
