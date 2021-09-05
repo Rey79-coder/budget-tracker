@@ -25,15 +25,11 @@ request.onerror = function (event) {
 
 
 function saveRecord(transaction) {
-    // const transaction = db.Transaction(['new_transaction'], 'readwrite');
-    const transactionObjectStore = transaction.objectStore('new_transaction');
-
-    transactionObjectStore.add(record);
+    transactionObjectStore.add(transaction);
 }
 
 
 function uploadTransaction() {
-    // open a transaction on your db
     const transaction = db.Transaction(['new_transaction'], 'readwrite');
 
     const transactionObjectStore = transaction.objectStore('new_transaction');
@@ -44,7 +40,7 @@ function uploadTransaction() {
     getAll.onsuccess = function () {
         // if there was data in indexedDb's store, let's send it to the api server
         if (getAll.result.length > 0) {
-            fetch('/api/transaction', {
+            fetch('/api', {
                 method: 'POST',
                 body: JSON.stringify(getAll.result),
                 headers: {
@@ -66,7 +62,7 @@ function uploadTransaction() {
 
                     alert('All saved budget has been submitted!');
                 })
-
+                
                 .catch(err => {
                     console.log(err);
                     saveRecord(transaction);
